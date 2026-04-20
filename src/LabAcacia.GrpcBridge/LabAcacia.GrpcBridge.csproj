@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>LabAcacia.GrpcBridge</RootNamespace>
+    <PackageId>LabAcacia.GrpcBridge</PackageId>
+    <AssemblyName>LabAcacia.GrpcBridge</AssemblyName>
+    <Version>0.1.0-alpha.1</Version>
+    <Description>gRPC ↔ NWP bridge: exposes NPS NWP Memory / Action / Complex / Gateway Nodes as a generic gRPC service with bytes-carrying payloads. Addresses the "NPS should integrate with gRPC/protobuf" review comment without forcing a compile-time schema on top of NWP's runtime AnchorFrame model.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Authors>LabAcacia / INNO LOTUS PTY LTD</Authors>
+    <Company>INNO LOTUS PTY LTD</Company>
+    <PackageTags>nps;nwp;grpc;protobuf;bridge;ai;agent</PackageTags>
+    <PackageProjectUrl>https://github.com/labacacia/nps</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/labacacia/nps</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.67.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.28.3" />
+    <PackageReference Include="Grpc.Tools" Version="2.67.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\nwp_bridge.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+</Project>
